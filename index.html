@@ -8,25 +8,31 @@
 <body>
 
   <form>
-    <label for="firstName">First Name: </label>
-    <input type="text" name="firstName" placeholder="First Name" id="firstName"></input>
-    <label for="lastName">Last Name: </label>
-    <input type="text" name="lastName" placeholder="Last Name" id="lastName"></input>
-    <label for="employeeNumber">Employee Number: </label>
+    <input class="random" type="submit" value="Generate Random User"></input>
+    <label class="noRadio" for="firstName">First Name: </label>
+    <input type="text" name="firstName" placeholder="First Name" id="firstName" ></input>
+    <label class="noRadio" for="lastName">Last Name: </label>
+    <input type="text" name="lastName" placeholder="Last Name" id="lastName" ></input>
+    <label class="noRadio" for="employeeNumber" >Employee Number: </label>
     <input type="text" name="employeeNumber" placeholder="Employee Number" id="employeeNumber"></input>
-    <label for="title">Title: </label>
+    <label class="noRadio" for="title">Title: </label>
     <input type="text" name="title" placeholder="Title" id="title"></input>
-    <label for="ratingOne">1</label>
-    <input type="radio" name="rating" value="1" id="ratingOne"></input>
-    <label for="ratingTwo">2</label>
-    <input type="radio" name="rating" value="2" id="ratingTwo"></input>
-    <label for="ratingThree">3</label>
-    <input type="radio" name="rating" value="3" id="ratingThree"></input>
-    <label for="ratingFour">4</label>
-    <input type="radio" name="rating" value="4" id="ratingFour"></input>
-    <label for="ratingFive">5</label>
-    <input type="radio" name="rating" value="5" id="ratingFive"></input>
-    <label for="salary">Annual Salary: </label>
+    <p class="review">
+      Last Review Rating
+    </p>
+    <div class="radioGroup">
+      <label for="ratingOne">1</label>
+      <input class="radio" type="radio" name="rating" value="1" id="ratingOne"></input>
+      <label for="ratingTwo">2</label>
+      <input class="radio" type="radio" name="rating" value="2" id="ratingTwo"></input>
+      <label for="ratingThree">3</label>
+      <input class="radio" type="radio" name="rating" value="3" id="ratingThree"></input>
+      <label for="ratingFour">4</label>
+      <input class="radio" type="radio" name="rating" value="4" id="ratingFour"></input>
+      <label for="ratingFive">5</label>
+      <input class="radio" type="radio" name="rating" value="5" id="ratingFive"></input>
+    </div>
+    <label class="noRadio" for="salary">Annual Salary: </label>
     <input type="text" name="salary" placeholder="Salary" id="salary"></input>
     <input type="submit" value="Submit"></input>
   </form>

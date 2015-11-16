@@ -41,21 +41,21 @@ $(document).ready(function() {
       // save employee objects in an array of employee objects
       employeeArray.push(employee);
 
-      $ul = $('<ul>');
+      var $ul = $('<ul class="emps">');
 
-      $firstName = $('<li>');
-      $lastName = $('<li>');
-      $employeeNumber = $('<li>');
-      $title = $('<li>');
-      $lastReview = $('<li>');
-      $salary = $('<li>');
+      var $firstName = $('<li class="empName">');
+      var $lastName = $('<li class="empName">');
+      var $employeeNumber = $('<li class="empNum">');
+      var $title = $('<li class="title">');
+      var $lastReview = $('<li class="lastReview">');
+      var $salary = $('<li class="salary">');
 
-      $firstName.text(employee.firstName);
-      $lastName.text(employee.lastName);
-      $employeeNumber.text(employee.employeeNumber);
-      $title.text(employee.employeeTitle);
-      $lastReview.text(employee.lastReview);
-      $salary.text(employee.salary);
+      $firstName.text('First Name: ' + employee.firstName);
+      $lastName.text('Last Name: ' + employee.lastName);
+      $employeeNumber.text('Employee Number: ' + employee.employeeNumber);
+      $title.text('Employee Title: ' + employee.employeeTitle);
+      $lastReview.text('Latest Review: ' + employee.lastReview);
+      $salary.text('Salary: ' + employee.salary);
 
       // if rating 4 or 5, good
       // if rating 2 or 3, needs improvement
@@ -77,7 +77,7 @@ $(document).ready(function() {
       $ul.append($firstName).append($lastName).append($employeeNumber)
          .append($title).append($lastReview).append($salary);
 
-      $remove = $('<button name="remove" class="remove">Delete User</button>');
+      var $remove = $('<button name="remove" class="remove">Delete User</button>');
       $ul.append($remove);
 
       $('.currentEmps').append($ul);
@@ -99,6 +99,22 @@ $(document).ready(function() {
     $('.remove').on('click', function(event) {
       try {
         $(this).parent().remove(); // use traversal to find the employee's index in employeeArray
+
+        // find employee object via employee Number
+        var $info = $(this).parent().find('li').first().next().next().text();
+
+        // console.log($info); // Employee Number: 001
+        var $numb = $info.substr(17);
+
+        // console.log($numb);
+        employeeArray.forEach(function(elem, index, array) {
+          if (elem.employeeNumber === $numb) {
+            array.splice(index, 1);
+          }
+
+        });
+
+        console.log(employeeArray);
       } catch (exception) {
         console.log(exception);
       } finally {
@@ -106,5 +122,22 @@ $(document).ready(function() {
       }
     });
 
+    // call random name generator API when random button clicked
+    // var nameAPI = 'http://api.uinames.com';
+    // $('.random').on('click', function() {
+    //   $.getJSON(nameAPI)
+    //    .done(function(json) {
+    //       console.log('JSON Data: ' + json.name);
+    //     })
+    //   .fail(function(jqxhr, textStatus, error) {
+    //     var err = textStatus + ', ' + error;
+    //     console.log('Request Failed: ' + err);
+    //   });
+    // });
+
   });
 });
+
+//TODO: Generate Random Employee
+//TODO: Alphabetically Sort
+//TODO: Total Up Salaries of all employees

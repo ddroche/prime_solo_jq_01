@@ -1,3 +1,49 @@
+
+form {
+  display: flex;
+  margin: 0 auto;
+  width: 33%;
+  flex-direction: column;
+}
+input {
+  padding: 5px 0px;
+}
+label.noRadio {
+  margin: 10px 0px;
+}
+.radioGroup {
+  display: flex;
+}
+p.review {
+  text-align: center;
+}
+.radio {
+  flex-basis: auto;
+  width: 20%;
+}
+div.currentEmps {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+ul.emps {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+li {
+  list-style: none;
+  padding: 0 10px;
+  margin: 0 10px;
+  width: 12%;
+}
+.title {
+  flex-grow: 2;
+}
+li.lastReview {
+ width: 8%;
+}
 .good {
   background-color: rgba(0,80,0,0.5);
 }
