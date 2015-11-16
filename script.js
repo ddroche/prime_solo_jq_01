@@ -122,6 +122,14 @@ $(document).ready(function() {
       }
     });
 
+    var $salaryView = $('section.salaryView article p');
+    var totalSalary = 0;
+    var eachSalary = employeeArray.forEach(function(elem) {
+      totalSalary += parseInt(elem.salary);
+    });
+
+    $salaryView.text('Total Salary: ' + totalSalary);
+
     // call random name generator API when random button clicked
     // var nameAPI = 'http://api.uinames.com';
     // $('.random').on('click', function() {
@@ -140,4 +148,3 @@ $(document).ready(function() {
 
 //TODO: Generate Random Employee
 //TODO: Alphabetically Sort
-//TODO: Total Up Salaries of all employees

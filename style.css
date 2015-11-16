@@ -1,4 +1,10 @@
-
+.salaryView {
+  justify-content: center;
+}
+.salaryView, .salaryView article {
+  display: flex;
+  text-align: center;
+}
 form {
   display: flex;
   margin: 0 auto;
