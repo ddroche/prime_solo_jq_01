@@ -130,6 +130,7 @@ $(document).ready(function() {
 
     $salaryView.text('Total Salary: ' + totalSalary);
 
+    //TODO: use $.ajax and include CORS header
     // call random name generator API when random button clicked
     // var nameAPI = 'http://api.uinames.com';
     // $('.random').on('click', function() {

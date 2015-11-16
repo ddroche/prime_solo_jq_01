@@ -50,6 +50,9 @@ li {
 li.lastReview {
  width: 8%;
 }
+.remove {
+  margin-right: 50px;
+}
 .good {
   background-color: rgba(0,80,0,0.5);
 }
