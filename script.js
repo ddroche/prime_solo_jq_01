@@ -63,21 +63,26 @@ $(document).ready(function() {
 
       switch (employee.lastReview) {
         case '5':
-        case '4':
+        case '4': {
           $lastReview.addClass('good');
           break;
+        }
         case '3':
-        case '2':
+        case '2': {
           $lastReview.addClass('needsImprovement');
           break;
-        case '1':
+        }
+        case '1': {
           $lastReview.addClass('bad');
+        }
       }
 
       $ul.append($firstName).append($lastName).append($employeeNumber)
          .append($title).append($lastReview).append($salary);
 
-      var $remove = $('<button name="remove" class="remove">Delete User</button>');
+      var $remove = $('<button name="remove" ' +
+                      'class="remove">Delete User</button>');
+
       $ul.append($remove);
 
       $('.currentEmps').append($ul);
@@ -145,6 +150,8 @@ $(document).ready(function() {
     // });
 
   });
+
+  var employeeTemplate = $('');
 });
 
 //TODO: Generate Random Employee

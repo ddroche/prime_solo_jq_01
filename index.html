@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js"></script>
+  <!-- <script src="script.js"></script> -->
+  <script src="template.js"></script>
   <meta charset="UTF-8">
-  <link href="style.css" rel="stylesheet">
+  <link href="template.css" rel="stylesheet">
   <title>Derek Inc.</title>
 </head>
 <body>
   <section class="salaryView">
     <article>
       <p>
-        
+
       </p>
     </article>
   </section>
@@ -43,11 +47,24 @@
     <input type="submit" value="Submit"></input>
   </form>
 
+    <!-- -->
   <div class="currentEmps">
+    <script id="currentEmployees" type="text/x-handlebars-template">
+
+      {{#each employees}}
+      <ul class="emps" data-empnum="{{employeeNumber}}">
+        <li class="empName">First Name: {{firstName}}</li>
+        <li class="empName">Last Name: {{lastName}}</li>
+        <li class="empNum">Employee Number: {{employeeNumber}}</li>
+        <li class="title">Employee Title: {{employeeTitle}}</li>
+        <li class="lastReview review_{{lastReview}}">Latest Review: {{lastReview}}</li>
+        <li class="salary">Salary: {{salary}}</li>
+        <button name="remove" class="remove">Delete User</button>
+      </ul>
+      {{/each}}
+    </script>
+
   </div>
 
-
-<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script src="script.js"></script>
 </body>
 </html>
