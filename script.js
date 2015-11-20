@@ -12,6 +12,14 @@ function Employee(firstName, lastName, employeeNumber,
   this.salary = salary;
 }
 
+function compTotalSalary(array) {
+  var totalSalary = 0;
+  array.forEach(function(elem) {
+    totalSalary += parseInt(elem.salary);
+  });
+  return totalSalary;
+}
+
 $(document).ready(function() {
   /**
    * initialize array with employees
@@ -24,6 +32,7 @@ $(document).ready(function() {
 
   /** --------- FORM SUBMISSION -----------**/
   $('form').on('submit', function(event) {
+    console.log('working');
     try {
 
       firstName = $('#firstName').val();
@@ -37,7 +46,8 @@ $(document).ready(function() {
                         employeeNumber, employeeTitle, lastReview, salary));
 
       console.log(employeeArray);
-      renderEmployeeArray(employeeArray);
+
+      renderEmployeeArray(employeeArray, compTotalSalary(employeeArray));
     } catch (exception) {
       console.log(exception);
     } finally {
@@ -49,7 +59,8 @@ $(document).ready(function() {
   $('.currentEmps').on('click', '.remove', function(event) {
     console.log('working');
     try {
-      var dataNum = $('.emps').data('empnum');
+      console.log(this);
+      var dataNum = $(this).parent().data('empnum');
       console.log('dataNum: ' + dataNum);
       employeeArray.forEach(function(elem, index, array) {
         if (parseInt(elem.employeeNumber) === dataNum) {
@@ -60,7 +71,7 @@ $(document).ready(function() {
 
       console.log(employeeArray);
 
-      renderEmployeeArray(employeeArray);
+      renderEmployeeArray(employeeArray, compTotalSalary(employeeArray));
     } catch (exception) {
       console.log(exception);
     } finally {
@@ -69,9 +80,10 @@ $(document).ready(function() {
   });
 
   /** --------- RENDER FUNCTION -----------**/
-  function renderEmployeeArray(employeeArray) {
+  function renderEmployeeArray(employeeArray, salaryTotal) {
     // Pass data to template
-    var compiledHtml = employeeArrayTemplate({employees: employeeArray});
+    var compiledHtml = employeeArrayTemplate({employees: employeeArray,
+                                              salaryTotal: salaryTotal});
 
     // Add compiled html to page
     $('.currentEmps').html(compiledHtml);

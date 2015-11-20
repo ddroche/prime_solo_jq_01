@@ -4,19 +4,12 @@
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js"></script>
   <!-- <script src="script.js"></script> -->
-  <script src="template.js"></script>
+  <script src="script.js"></script>
   <meta charset="UTF-8">
   <link href="style.css" rel="stylesheet">
   <title>Derek Inc.</title>
 </head>
 <body>
-  <section class="salaryView">
-    <article>
-      <p>
-
-      </p>
-    </article>
-  </section>
   <form>
     <!-- <input class="random" type="submit" value="Generate Random User"></input> -->
     <label class="noRadio" for="firstName">First Name: </label>
@@ -50,15 +43,23 @@
     <!-- -->
   <div class="currentEmps">
     <script id="currentEmployees" type="text/x-handlebars-template">
+      <section class="salaryView">
+        <article>
+          <h3>
+          Total Salary: ${{salaryTotal}}
+          </h3>
+        </article>
+      </section>
 
       {{#each employees}}
-      <ul class="emps" data-empnum="{{employeeNumber}}">
-        <li class="empName">First Name: {{firstName}}</li>
-        <li class="empName">Last Name: {{lastName}}</li>
-        <li class="empNum">Employee Number: {{employeeNumber}}</li>
-        <li class="title">Employee Title: {{employeeTitle}}</li>
-        <li class="lastReview review_{{lastReview}}">Latest Review: {{lastReview}}</li>
-        <li class="salary">Salary: {{salary}}</li>
+
+      <ul class="emps" data-empnum="{{this.employeeNumber}}">
+        <li class="empName">First Name: {{this.firstName}}</li>
+        <li class="empName">Last Name: {{this.lastName}}</li>
+        <li class="empNum">Employee Number: {{this.employeeNumber}}</li>
+        <li class="title">Employee Title: {{this.employeeTitle}}</li>
+        <li class="lastReview review_{{this.lastReview}}">Latest Review: {{this.lastReview}}</li>
+        <li class="salary">Salary: {{this.salary}}</li>
         <button name="remove" class="remove">Delete User</button>
       </ul>
       {{/each}}
