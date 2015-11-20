@@ -1,3 +1,6 @@
+body {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+}
 .salaryView {
   justify-content: center;
 }
@@ -53,12 +56,12 @@ li.lastReview {
 .remove {
   margin-right: 50px;
 }
-.good {
+.review_4, .review_5 {
   background-color: rgba(0,80,0,0.5);
 }
-.needsImprovement {
+.review_2, .review_3 {
   background-color: rgba(255,255,0,0.5);
 }
-.bad {
+.review_1 {
   background-color: rgba(255,0,0,0.5);
 }
